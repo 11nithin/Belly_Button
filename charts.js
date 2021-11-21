@@ -4,7 +4,6 @@ function init() {
 
   // Use the list of sample names to populate the select options
   d3.json("samples.json").then((data) => {
-    console.log(data);
     var sampleNames = data.names;
     
     sampleNames.forEach((sample) => {
@@ -54,6 +53,8 @@ function buildMetadata(sample) {
   });
 }
 
+//Deliverable 1
+
 // 1. Create the buildCharts function.
 function buildCharts(sample) {
   // 2. Use d3.json to load and retrieve the samples.json file 
@@ -78,11 +79,11 @@ function buildCharts(sample) {
     
     // Hint: Get the the top 10 otu_ids and map them in descending order  
     //  so the otu_ids with the most bacteria are last. 
-    var topTenIds = bacteria.otu_ids.slice(0,10).map(t=> "OTU" + t).reverse();
+    var topTenIds = bacteria.otu_ids.slice(0,10).map(t=> "OTU-" + t).reverse();
     var topTenOtuLabels = bacteria.otu_labels.slice(0,10).reverse();
     var topTenSampleLabels = bacteria.sample_values.slice(0,10).reverse();
     
-    console.log(topTenIds)
+    
     // 8. Create the trace for the bar chart. 
     var barData = [{
       x: topTenSampleLabels,
@@ -100,6 +101,7 @@ function buildCharts(sample) {
     // 10. Use Plotly to plot the data with the layout. 
     Plotly.newPlot("bar", barData, barLayout)
 
+//Deliverable 2
 
     // Create the trace for the bubble chart.
     var bubbleData = [{
@@ -126,7 +128,7 @@ function buildCharts(sample) {
     };
     Plotly.newPlot("bubble", bubbleData, bubbleLayout)
 
-
+//Deliverable 3
     // Create the trace for the gauge chart
    var filteredMetada = data.metadata.filter(sampleObj => sampleObj.id == sample )[0];
    var wfreq = parseFloat(filteredMetada.wfreq)
@@ -151,7 +153,7 @@ function buildCharts(sample) {
     }
   }];
     
-    // 5. Create the layout for the gauge chart.
+    //  Create the layout for the gauge chart.
     var gaugeLayout = { 
      
       title: "Belly Button Washing Frequency"

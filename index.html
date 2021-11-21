@@ -9,27 +9,27 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <style type="text/css">
     .bg-cover {
-        background-image: url('https://github.com/11nithin/Belly_Button/blob/main/images/belly_button_biodiversity.jpg?raw=true');
+        background-image: url('https://github.com/11nithin/Belly_Button/blob/main/images/virus1.jpg?raw=true');
         background-size: cover; 
     }
   </style>
 </head>
 
 <body>
-  <body style="background:linear-gradient(to bottom right, #666699 0%, #ffffcc 104%)"></body>
+  <body style="background:linear-gradient(to bottom right, #008080 0%, #F5F5F5 104%)"></body>
 
   <div class="container">
     <div class="row">
       <div class="col-md-12 jumbotron jumbotron bg-cover text-center">
-        <h1 style="color: #B0C4DE" >Belly Button Biodiversity Dashboard</h1>
-        <p><b style="color: #B0C4DE">Use the interactive charts below to explore the dataset</b></p>
+        <h1 style="color: #DCDCDC" >Belly Button Biodiversity Dashboard</h1>
+        <p><b style="color: #DCDCDC">Use the interactive charts below to explore the dataset</b></p>
       </div>
     </div>
     <div class="row">
       <div class="col-md-2">
         <div class="well">
-          <h5><b>Test Subject ID No.:</b></h5>
-          <p><small>Select from the dropdown to update chart contents<br></small></p>
+          <h5><b>ID No.</b></h5>
+          <p><small>Select ID from dropdown menu <br></small></p>
           <!-- <select id="selDataset"></select> -->
           <select id="selDataset" onchange="optionChanged(this.value)"></select>
         </div>
@@ -42,17 +42,17 @@
       </div>
       <div class="col-md-5">
         <div id="bar"></div>
-        <p><b><center>Represents the top 10 bacteria cultures found based on volume identified by ID, name and sample volume.</center></b></p>
+        <p><b><center>OTU ID's vs Sample value</center></b></p>
       </div>
       <div class="col-md-5">
         <div id="gauge"></div>
-        <p><b><center>Reported frequency in which the sample area was washed. Subjects that had a lower frequency of washes provided a higher concentration of cultures available for sampling.</center></b></p>
+        <p><b><center> Washing Frequency</center></b></p>
       </div>
     </div>
       <div class="row">
       <div class="col-md-12">
         <div id="bubble"></div>
-        <p><b><center>Representation of the cultures that were collected. The higher the volume of samples, the larger the bubbles.</center></b></p>
+        <p><b><center>OTU ID's vs Sample Value</center></b></p>
       </div>
     </div>
   </div>
