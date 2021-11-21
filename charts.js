@@ -101,7 +101,7 @@ function buildCharts(sample) {
     Plotly.newPlot("bar", barData, barLayout)
 
 
-    // 1. Create the trace for the bubble chart.
+    // Create the trace for the bubble chart.
     var bubbleData = [{
       x: otu_ids,
       y: sample_values,
@@ -116,7 +116,7 @@ function buildCharts(sample) {
 
     }];
 
-    // 2. Create the layout for the bubble chart.
+    //  Create the layout for the bubble chart.
     var bubbleLayout = {
       title: "Bacteria Cultures Per Sample",
       xaxis: { title: "OTU"},
@@ -125,5 +125,40 @@ function buildCharts(sample) {
       width: 1200
     };
     Plotly.newPlot("bubble", bubbleData, bubbleLayout)
+
+
+    // Create the trace for the gauge chart
+   var filteredMetada = data.metadata.filter(sampleObj => sampleObj.id == sample )[0];
+   var wfreq = parseFloat(filteredMetada.wfreq)
+   
+   var gaugeData = [{
+    value: wfreq,
+    type: "indicator",
+    mode: "gauge+number",
+    title: {text: "Scrubs per week"},
+    gauge: {
+      axis: { range: [null, 10] ,
+              tick0: 0,
+              dtick: 2},
+      bar: { color: "black" },        
+      steps: [
+        { range: [0, 2], color: "red" },
+        { range: [2, 4], color: "orange" },
+        { range: [4, 6], color: "yellow" },
+        { range: [6, 8], color: "yellowgreen" },
+        { range: [8, 10], color: "green" },
+      ]
+    }
+  }];
+    
+    // 5. Create the layout for the gauge chart.
+    var gaugeLayout = { 
+     
+      title: "Belly Button Washing Frequency"
+    };
+
+  Plotly.newPlot("gauge", gaugeData, gaugeLayout)
+
+
   });
 }
